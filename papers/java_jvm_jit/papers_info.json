@@ -1,0 +1,61 @@
+{
+  "1412.6765v1": {
+    "title": "Performance comparison between Java and JNI for optimal implementation of computational micro-kernels",
+    "authors": [
+      "Nassim A. Halli",
+      "Henri-Pierre Charles",
+      "Jean-Fran\u00e7ois Mehaut"
+    ],
+    "summary": "General purpose CPUs used in high performance computing (HPC) support a\nvector instruction set and an out-of-order engine dedicated to increase the\ninstruction level parallelism. Hence, related optimizations are currently\ncritical to improve the performance of applications requiring numerical\ncomputation. Moreover, the use of a Java run-time environment such as the\nHotSpot Java Virtual Machine (JVM) in high performance computing is a promising\nalternative. It benefits from its programming flexibility, productivity and the\nperformance is ensured by the Just-In-Time (JIT) compiler. Though, the JIT\ncompiler suffers from two main drawbacks. First, the JIT is a black box for\ndevelopers. We have no control over the generated code nor any feedback from\nits optimization phases like vectorization. Secondly, the time constraint\nnarrows down the degree of optimization compared to static compilers like GCC\nor LLVM. So, it is compelling to use statically compiled code since it benefits\nfrom additional optimization reducing performance bottlenecks. Java enables to\ncall native code from dynamic libraries through the Java Native Interface\n(JNI). Nevertheless, JNI methods are not inlined and require an additional cost\nto be invoked compared to Java ones. Therefore, to benefit from better static\noptimization, this call overhead must be leveraged by the amount of computation\nperformed at each JNI invocation. In this paper we tackle this problem and we\npropose to do this analysis for a set of micro-kernels. Our goal is to select\nthe most efficient implementation considering the amount of computation defined\nby the calling context. We also investigate the impact on performance of\nseveral different optimization schemes which are vectorization, out-of-order\noptimization, data alignment, method inlining and the use of native memory for\nJNI methods.",
+    "pdf_url": "http://arxiv.org/pdf/1412.6765v1",
+    "published": "2014-12-21"
+  },
+  "2305.09493v2": {
+    "title": "Experiences in Building a Composable and Functional API for Runtime SPIR-V Code Generation",
+    "authors": [
+      "Juan Fumero",
+      "Gy\u00f6rgy Rethy",
+      "Athanasios Stratikopoulos",
+      "Nikos Foutris",
+      "Christos Kotselidis"
+    ],
+    "summary": "This paper presents the Beehive SPIR-V Toolkit; a framework that can\nautomatically generate a Java composable and functional library for dynamically\nbuilding SPIR-V binary modules. The Beehive SPIR-V Toolkit can be used by\noptimizing compilers and runtime systems to generate and validate SPIR-V binary\nmodules from managed runtime systems, such as the Java Virtual Machine (JVM).\nFurthermore, our framework is architected to accommodate new SPIR-V releases in\nan easy-to-maintain manner, and it facilitates the automatic generation of Java\nlibraries for other standards, besides SPIR-V. The Beehive SPIR-V Toolkit also\nincludes an assembler that emits SPIR-V binary modules from disassembled SPIR-V\ntext files, and a disassembler that converts the SPIR-V binary code into a text\nfile, and a console client application. To the best of our knowledge, the\nBeehive SPIR-V Toolkit is the first Java programming framework that can\ndynamically generate SPIR-V binary modules.\n  To demonstrate the use of our framework, we showcase the integration of the\nSPIR-V Beehive Toolkit in the context of the TornadoVM, a Java framework for\nautomatically offloading and running Java programs on heterogeneous hardware.\nWe show that, via the SPIR-V Beehive Toolkit, the TornadoVM is able to compile\ncode 3x faster than its existing OpenCL C JIT compiler, and it performs up to\n1.52x faster than the existing OpenCL C backend in TornadoVM.",
+    "pdf_url": "http://arxiv.org/pdf/2305.09493v2",
+    "published": "2023-05-16"
+  },
+  "2205.03590v1": {
+    "title": "Can We Run in Parallel? Automating Loop Parallelization for TornadoVM",
+    "authors": [
+      "Rishi Sharma",
+      "Shreyansh Kulshreshtha",
+      "Manas Thakur"
+    ],
+    "summary": "With the advent of multi-core systems, GPUs and FPGAs, loop parallelization\nhas become a promising way to speed-up program execution. In order to stay up\nwith time, various performance-oriented programming languages provide a\nmultitude of constructs to allow programmers to write parallelizable loops.\nCorrespondingly, researchers have developed techniques to automatically\nparallelize loops that do not carry dependences across iterations, and/or call\npure functions. However, in managed languages with platform-independent\nruntimes such as Java, it is practically infeasible to perform complex\ndependence analysis during JIT compilation. In this paper, we propose\nAutoTornado, a first of its kind static+JIT loop parallelizer for Java programs\nthat parallelizes loops for heterogeneous architectures using TornadoVM (a\nGraal-based VM that supports insertion of @Parallel constructs for loop\nparallelization).\n  AutoTornado performs sophisticated dependence and purity analysis of Java\nprograms statically, in the Soot framework, to generate constraints encoding\nconditions under which a given loop can be parallelized. The generated\nconstraints are then fed to the Z3 theorem prover (which we have integrated\nwith Soot) to annotate canonical for loops that can be parallelized using the\n@Parallel construct. We have also added runtime support in TornadoVM to use\nstatic analysis results for loop parallelization. Our evaluation over several\nstandard parallelization kernels shows that AutoTornado correctly parallelizes\n61.3% of manually parallelizable loops, with an efficient static analysis and a\nnear-zero runtime overhead. To the best of our knowledge, AutoTornado is not\nonly the first tool that performs program-analysis based parallelization for a\nreal-world JVM, but also the first to integrate Z3 with Soot for loop\nparallelization.",
+    "pdf_url": "http://arxiv.org/pdf/2205.03590v1",
+    "published": "2022-05-07"
+  },
+  "2403.11283v1": {
+    "title": "Pattern-Based Peephole Optimizations with Java JIT Tests",
+    "authors": [
+      "Zhiqiang Zang",
+      "Aditya Thimmaiah",
+      "Milos Gligoric"
+    ],
+    "summary": "We present JOG, a framework that facilitates developing Java JIT peephole\noptimizations alongside JIT tests. JOG enables developers to write a pattern,\nin Java itself, that specifies desired code transformations by writing code\nbefore and after the optimization, as well as any necessary preconditions. Such\npatterns can be written in the same way that tests of the optimization are\nalready written in OpenJDK. JOG translates each pattern into C/C++ code that\ncan be integrated as a JIT optimization pass. JOG also generates Java tests for\noptimizations from patterns. Furthermore, JOG can automatically detect possible\nshadow relation between a pair of optimizations where the effect of the\nshadowed optimization is overridden by another. Our evaluation shows that JOG\nmakes it easier to write readable JIT optimizations alongside tests without\ndecreasing the effectiveness of JIT optimizations. We wrote 162 patterns,\nincluding 68 existing optimizations in OpenJDK, 92 new optimizations adapted\nfrom LLVM, and two new optimizations that we proposed. We opened eight pull\nrequests (PRs) for OpenJDK, including six for new optimizations, one on\nremoving shadowed optimizations, and one for newly generated JIT tests; seven\nPRs have already been integrated into the master branch of OpenJDK.",
+    "pdf_url": "http://arxiv.org/pdf/2403.11283v1",
+    "published": "2024-03-17"
+  },
+  "2403.11281v3": {
+    "title": "Java JIT Testing with Template Extraction",
+    "authors": [
+      "Zhiqiang Zang",
+      "Fu-Yao Yu",
+      "Aditya Thimmaiah",
+      "August Shi",
+      "Milos Gligoric"
+    ],
+    "summary": "We present LeJit, a template-based framework for testing Java just-in-time\n(JIT) compilers. Like recent template-based frameworks, LeJit executes a\ntemplate -- a program with holes to be filled -- to generate concrete programs\ngiven as inputs to Java JIT compilers. LeJit automatically generates template\nprograms from existing Java code by converting expressions to holes, as well as\ngenerating necessary glue code (i.e., code that generates instances of\nnon-primitive types) to make generated templates executable. We have\nsuccessfully used LeJit to test a range of popular Java JIT compilers,\nrevealing five bugs in HotSpot, nine bugs in OpenJ9, and one bug in GraalVM.\nAll of these bugs have been confirmed by Oracle and IBM developers, and 11 of\nthese bugs were previously unknown, including two CVEs (Common Vulnerabilities\nand Exposures). Our comparison with several existing approaches shows that\nLeJit is complementary to them and is a powerful technique for ensuring Java\nJIT compiler correctness.",
+    "pdf_url": "http://arxiv.org/pdf/2403.11281v3",
+    "published": "2024-03-17"
+  }
+}
